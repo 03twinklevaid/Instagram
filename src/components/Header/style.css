@@ -1,0 +1,60 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.border-bottom {
+    border-bottom: 1px solid #dbdbdb;
+}
+.header-container {
+    width: 70%;
+    margin: auto;
+    padding: 18px 0 18px 0;
+}
+.insta-font {
+    font-family: 'Grand Hotel', cursive;
+}
+.font-28 {
+    font-size: 28px;
+}
+.pl-10 {
+    padding-left: 10px;
+}
+.pr-10 {
+    padding-right: 10px;
+}
+ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    display: flex;
+}
+.border-left {
+    border-left: 1px solid black;
+}
+.search {
+    border: 1px solid #dbdbdb;
+    background-color: #fafafa;
+    color: #b1aeaf;
+    padding: 3px 65px;
+    border-radius: 3px;
+    position: relative;
+    margin-top: 6px;
+}
+.search .fa-search {
+    color: #b1aeaf;
+    font-size: 12px;
+    position: absolute;
+    left: 45px;
+    bottom: 6px;
+}
+.search input {
+    border: none;
+    background-color: #fafafa;
+    outline: none; 
+}
+.search input::placeholder {
+    color: #b1aeaf;
+}
+.user-font {
+    padding-left: 70px;
+}
