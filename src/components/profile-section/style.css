@@ -1,0 +1,25 @@
+.bg-color {
+    background-color: #fafafa;
+}
+.font-40 {
+    font-size: 40px;
+}
+.circle {
+    border: 1px solid #dbdbdb;
+    border-radius: 100%;
+    width: 150px;
+    height: 150px;
+}
+.profile {
+    padding-top: 34px;
+    font-size: 80px;
+}
+.edit-btn Link {
+    color: black;
+}
+.edit-btn {
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    padding: 10px;
+    display: block;
+}

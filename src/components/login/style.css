@@ -43,4 +43,5 @@ form button {
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.4);
     margin-top: 15px;
+    cursor: pointer;
 }
