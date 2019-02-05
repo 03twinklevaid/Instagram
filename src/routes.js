@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {Route, Link, BrowserRouter} from 'react-router-dom';
 import Login from './components/login/login.js';
-import Profile from './container/profile/profile.js'
+import Chatbot from './components/chat/chat.js';
+import Profile from './container/profile/profile.js';
+import Signup from './components/signup/signup.js';
 import Privateroute from './privateRoute.js';
 class Routing extends Component {
     render() {
@@ -14,6 +16,8 @@ class Routing extends Component {
                     // }}
                     />
                     <Privateroute path="/profile" component={Profile} />
+                    <Route exact path="/signup" component={Signup} />
+                    <Route exact path="/chat" component={Chatbot} />
                 </div>
             </BrowserRouter>
         )

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {handleLogin} from '../../Actions/login.js'
+import {handleLogin} from '../../Actions/login.js';
+import {Link} from 'react-router-dom';
 import './style.css';
 
 class Login extends Component {
@@ -27,12 +28,15 @@ class Login extends Component {
                             Instagram
                         </span>
                         <form onSubmit={(event) => this.props.handleLogin(event,this.props.history,this.state.Username,this.state.Password)}>
-                            <input type="text" placeholder="Username" value={this.state.Username} onChange={(event) => {this.handleOnChange(event, 'Username')}} required/>
+                            <input className="login-input" type="text" placeholder="Username" value={this.state.Username} onChange={(event) => {this.handleOnChange(event, 'Username')}} required/>
                             <br />
-                            <input type="password" placeholder="Password" value={this.state.Password} onChange={(event) => {this.handleOnChange(event, 'Password')}} required/>
+                            <input className="login-input" type="password" placeholder="Password" value={this.state.Password} onChange={(event) => {this.handleOnChange(event, 'Password')}} required/>
                             <br />
-                            <button type="submit">Log In</button>
+                            <button className="login-btn" type="submit">Log In</button>
                         </form>
+                        <p className="signup">
+                            Don't have an Account? <Link to="/signup"><strong>Sign up</strong></Link>
+                        </p>
                     </div>
                 </div>
             </div>

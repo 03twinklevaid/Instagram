@@ -1,0 +1,58 @@
+.signup-container {
+    /* background: -webkit-linear-gradient(right top, rgb(93, 36, 221), rgb(200, 56, 42)); */
+    background-color: #fafafa;
+    height:100vh;
+    padding-top: 25px;
+}
+.signup-form {
+    width: 400px;
+    height: 70vh;
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    margin: auto;
+}
+.heading {
+    font-family: 'Grand Hotel', cursive;
+}
+.sub-heading {
+    color: grey;
+}
+input.signup-input {
+    border: 1px solid #dbdbdb;
+    outline: none;
+    border-radius: 5px;
+    padding: 6px 50px;
+    margin-bottom: 5px;
+    background-color: #fafafa;
+    text-align: center;
+}
+input:focus {
+    border-color: #a5a2a2;
+}
+input::placeholder {
+    color: #a5a2a2;
+    font-size: 12px;
+}
+button.signup-btn {
+    padding: 4px 120px;
+    border-radius: 5px;
+    border: 1px solid #3897f0;
+    background-color: #3897f0;
+    color:white;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.terms {
+    color: #a5a2a2;
+    font-size: 15px;
+    line-height: 1;
+    margin-top:15px;
+}
+.login {
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    width: 400px;
+    margin:auto;
+    margin-top:10px;
+    padding: 15px;
+}

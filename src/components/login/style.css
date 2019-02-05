@@ -21,7 +21,7 @@
 .spacing {
     margin-top: -70px;
 }
-form input{
+form input.login-input{
     padding: 15px 80px;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.2);
@@ -31,10 +31,10 @@ form input{
     margin-bottom: 12px;
     text-align: center;
 }
-form input::placeholder {
+form input.login-input::placeholder {
     color: white;
 }
-form button {
+form button.login-btn {
     padding: 15px 80px;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.2);
@@ -44,4 +44,12 @@ form button {
     border: 1px solid rgba(255, 255, 255, 0.4);
     margin-top: 15px;
     cursor: pointer;
+}
+.signup {
+    margin-top:15px;
+    color: #eee;
+    font-size: 14px;
+}
+.signup a {
+    color: #fff;
 }

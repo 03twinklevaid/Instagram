@@ -6,7 +6,7 @@ import Profilesection from '../../components/profile-section/profile-section.js'
 class Profile extends Component {
     componentDidMount(){
        var localstorageId =  localStorage.getItem('id')
-       if(localstorageId && !this.props.user.id){
+       if(localstorageId && !this.props.user._id){
             this.props.loadProfile(localstorageId)
        }
     }
