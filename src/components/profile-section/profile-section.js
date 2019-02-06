@@ -1,28 +1,40 @@
-import React from 'react';
+import React,{Component} from 'react';
 import './style.css';
 import {Link} from 'react-router-dom';
 import {Container, Row, Col} from 'reactstrap';
-const Profilesection = (props) => {
-    console.log('propss', props);
-    return (
-        <div className="bg-color">
+import {connect} from 'react-redux';
+import {uploadProfilePic} from '../../Actions/login.js';
+
+class Profilesection extends Component {
+    render() {
+        return (
+            <div className="bg-color">
             <Container>
                 <Row>
                     <Col xs="4">
-                        <i className="fa fa-user-o circle profile"></i>
+                        <label>
+                            <input type="file" name="profilePic" onChange={(event)=>{this.props.uploadProfilePic(event, this.props.user._id)}}/>
+                            {
+                                this.props.user.profilePic ? (
+                                    <img src={`http://localhost:9090/${this.props.user.profilePic}`} alt="Profile-Pic" />
+                                ): (
+                                    <i className="fa fa-user-o circle profile"></i>
+                                )
+                            }
+                        </label>
                     </Col>
                     <Col xs="8">
                         <Row>
                             <Col>
                                 <ul>
                                     <li>
-                                        <strong>{props.user.username}</strong>
+                                        <strong>{this.props.user.username}</strong>
                                     </li>
                                     <li className="edit-btn">
                                         <Link to ="/"><strong>Edit Profile</strong></Link>
                                     </li>
                                     <li>
-                                    <i className="fa fa-cog fa-spin font-40"></i>
+                                    <i className="fa fa-cog font-40"></i>
                                     </li>
                                 </ul>
                             </Col>
@@ -46,7 +58,7 @@ const Profilesection = (props) => {
                             <Col xs="6">
                                 <ul>
                                     <li>
-                                        <strong>{props.user.username}</strong>
+                                        <strong>{this.props.user.username}</strong>
                                     </li>
                                 </ul>
                             </Col>
@@ -55,6 +67,16 @@ const Profilesection = (props) => {
                 </Row>
             </Container>
         </div>
-    )
+        )
+    }
 }
-export default Profilesection;
+
+// const mapStateToProps = (state) => {
+//     user: state.user
+// }
+
+const mapDispatchToProps = {
+    uploadProfilePic
+}
+
+export default connect(null, mapDispatchToProps)(Profilesection);

@@ -75,3 +75,34 @@ export const loadProfile = (id) => {
         })
     }
 }
+
+export const uploadProfilePic = (event, id) => {
+    return (dispatch) => {
+        console.log('event.target.value', event.target.files[0])
+        var formdata = new FormData();
+        formdata.append("profilePic", event.target.files[0])
+        fetch(`http://localhost:9090/upload`,{
+            method: "post",
+            body: formdata,
+            headers: {
+                id
+            }
+        })
+        .then(res => {
+            if(res.status === 200) {
+                return res.json()
+            }
+        })
+        .then(
+            (user) => {
+                dispatch({
+                    type: "UPLOAD_PROFILE",
+                    data: user
+                })
+            }
+        )
+        .catch(error => {
+            console.log('Profile Reload Error', error);
+        })
+    }
+}

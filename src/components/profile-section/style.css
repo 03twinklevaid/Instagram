@@ -9,7 +9,9 @@
     border-radius: 100%;
     width: 150px;
     height: 150px;
+    cursor: pointer;
 }
+
 .profile {
     padding-top: 34px;
     font-size: 80px;
@@ -22,4 +24,13 @@
     border-radius: 5px;
     padding: 10px;
     display: block;
+}
+label input {
+    position: absolute;
+    opacity: 0;
+}
+label img {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
 }

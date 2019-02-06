@@ -8,6 +8,9 @@ const loginReducer = (state=initialState , action) => {
         case "RELOAD_PROFILE" : {
             return {...action.data}
         }
+        case "UPLOAD_PROFILE" : {
+            return {...action.data}
+        }
         default: {
             return state;        
         }

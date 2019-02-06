@@ -10,6 +10,9 @@ var objectId = require('mongodb').ObjectID
 var url = 'mongodb://localhost:27017/twinkle';
 var userRoutes = require('./user/usersRoutes.js')
 var authRoutes = require('./auth/authRoutes.js')
+var multer = require('multer')
+var upload = multer({ dest: './uploads'})
+app.use(express.static("./uploads"))
 
 var db = null;
 app.use(
@@ -33,17 +36,37 @@ app.use("/auth",authRoutes)
 
 app.use(
    function middleware2 (req,res,next) {
-      var id = req.headers.id;
-      id = new objectId(id)
-      var collection = req.db.collection('instagram')
-      collection.findOne({_id: id}, {projection: {password: 0}}, (err,loginUser)=>{
-         if(err) throw err;
-         req.user = loginUser;
-         next()
-      })
+      if(req.headers.id){
+         var id = req.headers.id;
+         id = new objectId(id)
+         var collection = req.db.collection('instagram')
+         collection.findOne({_id: id}, {projection: {password: 0}}, (err,loginUser)=>{
+            if(err) throw err;
+            if(loginUser){
+               req.user = loginUser;
+            next()
+            }
+            else {
+               res.status(401).send('user not Found')
+            }
+         })
+      }
+      else {
+         res.status(401).send('user not Found')
+      }
    }
 )
 app.use("/user", userRoutes)
+app.post('/upload',upload.single('profilePic'), function(req,res,next) {
+   console.log("req.file", req.file)
+   var collection = req.db.collection('instagram')
+   collection.update({_id: req.user._id},{$set: {profilePic: req.file.filename}},(err,n) => {
+      console.log(n,"%%%%%%%%")
+      if(err) throw err;
+      req.user.profilePic = req.file.filename;
+      res.json(req.user)
+   })   
+})
 
 // app.post('/login',(req, res)=>{
 //    // res.setHeader('Access-Control-Allow-Origin','http://localhost:3000')
